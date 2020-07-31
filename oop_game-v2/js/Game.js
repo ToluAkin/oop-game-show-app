@@ -77,7 +77,7 @@ class Game {
 
         if (gameWon) {
             screenOverlay.className = 'win'
-            gameStatusMessage.textContent = 'Congratulations!!! You won!'
+            gameStatusMessage.textContent = 'Congratulations !!! You won!'
         } else {
             screenOverlay.className = 'lose'
             gameStatusMessage.textContent = 'Game Lost! Try again?'
