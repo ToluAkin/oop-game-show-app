@@ -28,6 +28,7 @@ body {
   flex-direction: column;
   display: flex;
   height: 100vh;
+  user-select: none;
 }
 
 li, ol, ul {

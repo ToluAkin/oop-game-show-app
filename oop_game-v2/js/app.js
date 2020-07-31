@@ -3,13 +3,12 @@
  * app.js */
 let game;
 const startButton = document.getElementById('btn__reset');
-// const phrase = new Phrase();
 
-startButton.addEventListener('click', () => {
+startButton.addEventListener('click', (e) => {
     game = new Game();
     game.startGame();
 });
 
-// document.addEventListener('keydown', function (event) {
-//     game.handleKeydown(event);
-// });
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('key'))  game.handleInteraction(e.target)
+});
