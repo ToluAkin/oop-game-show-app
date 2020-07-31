@@ -8,6 +8,10 @@ class Game {
         this.activePhrase = null;
     }
 
+    /**
+    * Creates phrases for use in game
+    * @return {array} An array of phrases that could be used in the game
+    */
     createPhrases() {
         const phraseArray = [
             'Survival of the fittest',
@@ -16,17 +20,20 @@ class Game {
             'A Piece of Cake',
             'History is bunk'
         ];
-
         return phraseArray.map(word => new Phrase(word));
     }
 
+    /**
+    * Selects random phrase from phrases property
+    * @return {Object} Phrase object chosen to be used
+    */
     getRandomPhrase() {
         return this.phrases[Math.floor(Math.random() * this.phrases.length)];
     }
 
     /**
-     * 
-     */
+    * Begins game by selecting a random phrase and displaying it to user
+    */
     startGame() {
         const overlayDiv = document.querySelector('#overlay');
         overlayDiv.style.display = 'none';
@@ -37,8 +44,7 @@ class Game {
 
     /**
     * Checks for winning move
-    * @return {boolean} True if game has been won, false if game wasn't
-    won
+    * @return {boolean} True if game has been won, false if game wasn't won
     */
     checkForWin() {
         const hiddenLetters = document.querySelectorAll('.hide');
@@ -98,7 +104,10 @@ class Game {
             this.removeLife()
         }
     }
-
+    /**
+     * Handles removal of selected letter, keys
+     * Adjusts the heart lives to 5 lives 
+     */
     resetGame() {
         const gameLetters = document.querySelector('#phrase ul');
         const buttons = document.querySelectorAll('.key');
