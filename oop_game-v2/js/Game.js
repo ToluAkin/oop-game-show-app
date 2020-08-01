@@ -74,8 +74,10 @@ class Game {
     gameOver(gameWon) {
         const screenOverlay = document.querySelector('#overlay')
         const gameStatusMessage = document.querySelector('#game-over-message')
+
         const winAnimation = ['win', 'animated', 'jackInTheBox']
         const loseAnimation = ['lose', 'animated', 'rollIn']
+        
         screenOverlay.style.display = ''
 
         if (gameWon) {
@@ -110,7 +112,7 @@ class Game {
         }
     }
     /**
-     * Handles removal of selected letter, keys
+     * Handles removal of selected letter, keys, animations
      * Adjusts the heart lives to 5 lives 
      */
     resetGame() {
