@@ -6,7 +6,7 @@ class Phrase {
     constructor(phrase) {
         this.phrase = phrase.toLowerCase();
     }
-    
+
     /**
     * Display phrase on game board
     */
@@ -19,11 +19,10 @@ class Phrase {
             li.classList.add('hide');
             li.textContent = `${letter}`;
 
-            if (letter === ' ') li.className = 'space';
-            else {
-                li.classList.add('letter');
-                li.classList.add(`${letter}`);
-            }
+            const letterClasses = [`${letter}`, 'letter']
+            letter === ' ' ?
+                li.className = 'space' :
+                li.classList.add(...letterClasses)
             ul.appendChild(li);
         });
     }
@@ -42,10 +41,10 @@ class Phrase {
     */
     showMatchedLetter(letter) {
         const matchedAlphabet = document.getElementsByClassName(letter);
-
+        const animation = ['show', 'animated', 'bounce']
         for (let i = 0; i < matchedAlphabet.length; i++) {
             matchedAlphabet[i].classList.remove('hide');
-            matchedAlphabet[i].classList.add('show');
+            matchedAlphabet[i].classList.add(...animation);
         }
     }
 }

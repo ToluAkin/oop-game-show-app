@@ -5,7 +5,10 @@ let game;
 const startButton = document.getElementById('btn__reset');
 const screen = document.getElementsByClassName('main-container');
 const keyboard = document.querySelectorAll('.key');
+const screenOverlay = document.querySelector('#overlay');
+const animation = ['animated', 'pulse']
 
+screenOverlay.classList.add(...animation);
 /**
  * Starts the game 
  */

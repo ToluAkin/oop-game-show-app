@@ -35,11 +35,14 @@ class Game {
     * Begins game by selecting a random phrase and displaying it to user
     */
     startGame() {
-        const overlayDiv = document.querySelector('#overlay');
-        overlayDiv.style.display = 'none';
-
+        const screenOverlay = document.querySelector('#overlay');
+        const header = document.querySelector('#banner')
+        const animation = ['animated', 'rubberBand']
+        screenOverlay.style.display = 'none';
+        
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
+        header.classList.add(...animation)
     }
 
     /**
@@ -61,9 +64,7 @@ class Game {
         heartLives[this.missed].src = 'images/lostHeart.png';
         this.missed++;
 
-        if (this.missed === 5) this.gameOver(false);
-        
-        return this.missed;
+        if (this.missed === 5) this.gameOver(false);        
     }
 
     /**
@@ -73,14 +74,18 @@ class Game {
     gameOver(gameWon) {
         const screenOverlay = document.querySelector('#overlay')
         const gameStatusMessage = document.querySelector('#game-over-message')
+        const winAnimation = ['win', 'animated', 'jackInTheBox']
+        const loseAnimation = ['lose', 'animated', 'rollIn']
         screenOverlay.style.display = ''
 
         if (gameWon) {
             screenOverlay.className = 'win'
             gameStatusMessage.textContent = 'Congratulations !!! You won!'
+            gameStatusMessage.classList.add(...winAnimation)
         } else {
             screenOverlay.className = 'lose'
             gameStatusMessage.textContent = 'Game Lost! Try again?'
+            gameStatusMessage.classList.add(...loseAnimation)
         }
         this.resetGame();
     }
@@ -91,16 +96,16 @@ class Game {
     */
     handleInteraction(button) {
         const letter = button.innerText
+        const animation = ['wrong', 'animated', 'swing']
         button.disabled = true
-
+        
         if (this.activePhrase.checkLetter(letter)) {
             button.classList.add('chosen')
             this.activePhrase.showMatchedLetter(letter)
-            if (this.checkForWin()) {
+            if (this.checkForWin())
                 this.gameOver(true);
-            }
         } else {
-            button.classList.add('wrong')
+            button.classList.add(...animation)
             this.removeLife()
         }
     }
@@ -112,13 +117,21 @@ class Game {
         const gameLetters = document.querySelector('#phrase ul');
         const buttons = document.querySelectorAll('.key');
         const heartLives = document.querySelectorAll('img');
+        const letters = document.querySelectorAll('.show');
+    
+        const letterAnimation = ['show', 'animated', 'bounce']
+        document.querySelector('#banner').className = 'section';
 
-        gameLetters.innerHTML = ''
-        
+        letters.forEach(letter => {
+            letter.classList.remove(...letterAnimation)
+        });
+
         buttons.forEach(button => {
             button.className = 'key'
             button.disabled = false
         });
+        
+        gameLetters.innerHTML = ''
 
         heartLives.forEach(life => {
             life.src = 'images/liveHeart.png'
