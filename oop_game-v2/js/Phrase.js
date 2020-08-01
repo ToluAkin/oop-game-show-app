@@ -1,7 +1,7 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * Phrase.js */
-
+//THIS PROJECT IS BUILT FOR EXCEEDS EXPECTATION
 class Phrase {
     constructor(phrase) {
         this.phrase = phrase.toLowerCase();
@@ -48,3 +48,4 @@ class Phrase {
         }
     }
 }
+//THIS PROJECT IS BUILT FOR EXCEEDS EXPECTATION

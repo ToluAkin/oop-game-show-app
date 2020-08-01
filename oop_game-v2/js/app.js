@@ -1,6 +1,7 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * app.js */
+//THIS PROJECT IS BUILT FOR EXCEEDS EXPECTATION
 let game;
 const startButton = document.getElementById('btn__reset');
 const screen = document.getElementsByClassName('main-container');
@@ -38,9 +39,5 @@ document.addEventListener('keydown', (e) => {
         if (key.textContent === e.key && key.disabled !== true)
             game.handleInteraction(key);   
     });
-
-    if (e.keyCode === 13) {
-        game = new Game();
-        game.startGame();
-    }
 });
+//THIS PROJECT IS BUILT FOR EXCEEDS EXPECTATION

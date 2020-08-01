@@ -1,6 +1,7 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * Game.js */
+//THIS PROJECT IS BUILT FOR EXCEEDS EXPECTATION
 class Game {
     constructor() {
         this.missed = 0;
@@ -37,12 +38,14 @@ class Game {
     startGame() {
         const screenOverlay = document.querySelector('#overlay');
         const header = document.querySelector('#banner')
+
         const animation = ['animated', 'rubberBand']
         screenOverlay.style.display = 'none';
         
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
-        header.classList.add(...animation)
+
+        header.classList.add(...animation);
     }
 
     /**
@@ -74,20 +77,14 @@ class Game {
     gameOver(gameWon) {
         const screenOverlay = document.querySelector('#overlay')
         const gameStatusMessage = document.querySelector('#game-over-message')
-
-        const winAnimation = ['win', 'animated', 'jackInTheBox']
-        const loseAnimation = ['lose', 'animated', 'rollIn']
-        
         screenOverlay.style.display = ''
 
         if (gameWon) {
             screenOverlay.className = 'win'
             gameStatusMessage.textContent = 'Congratulations !!! You won!'
-            gameStatusMessage.classList.add(...winAnimation)
         } else {
             screenOverlay.className = 'lose'
             gameStatusMessage.textContent = 'Game Lost! Try again?'
-            gameStatusMessage.classList.add(...loseAnimation)
         }
         this.resetGame();
     }
@@ -140,3 +137,4 @@ class Game {
         });
     }
 }
+//THIS PROJECT IS BUILT FOR EXCEEDS EXPECTATION
