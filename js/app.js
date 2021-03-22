@@ -4,7 +4,6 @@
 //THIS PROJECT IS BUILT FOR EXCEEDS EXPECTATION
 let game;
 const startButton = document.getElementById('btn__reset');
-const screen = document.getElementsByClassName('main-container');
 const keyboard = document.querySelectorAll('.key');
 const screenOverlay = document.querySelector('#overlay');
 

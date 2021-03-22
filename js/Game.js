@@ -90,9 +90,9 @@ class Game {
     }
 
     /**
-    * Handles onscreen keyboard button clicks
-    * @param (HTMLButtonElement) button - The clicked button element
-    */
+     * Handles onscreen keyboard button clicks
+     * @param button
+     */
     handleInteraction(button) {
         const letter = button.innerText
         const animation = ['wrong', 'animated', 'swing']
@@ -108,6 +108,7 @@ class Game {
             this.removeLife()
         }
     }
+
     /**
      * Handles removal of selected letter, keys, animations
      * Adjusts the heart lives to 5 lives 

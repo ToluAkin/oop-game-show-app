@@ -28,17 +28,17 @@ class Phrase {
     }
 
     /**
-    * Checks if passed letter is in phrase
-    * @param (string) letter - Letter to check
-    */
+     * Checks if passed letter is in phrase
+     * @param letter
+     */
     checkLetter(letter) {
         return this.phrase.includes(letter);
     }
 
     /**
-    * Displays passed letter on screen after a match is found
-    * @param (string) letter - Letter to display
-    */
+     * Displays passed letter on screen after a match is found
+     * @param letter
+     */
     showMatchedLetter(letter) {
         const matchedAlphabet = document.getElementsByClassName(letter);
         const animation = ['show', 'animated', 'bounce']
